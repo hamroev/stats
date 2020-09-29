@@ -60,3 +60,27 @@ func FilterByCategory(payments []types.Payment, category types.Category) []types
 	}
 	return filtered
 }
+
+// CategoriesAvg возвращает среднюю платежей по каждой категории
+func CategoriesAvg(payments []types.Payment) map[types.Category]types.Money {
+	categories := map[types.Category]types.Money{}
+	categoriesCount := map[types.Category]int{}
+
+	for _, payment := range payments {
+		categories[payment.Category] += payment.Amount
+		categoriesCount[payment.Category] ++
+
+	}
+
+	for key, value := range categories {
+		for k, v := range categoriesCount {
+			if key == k {
+				categories[key]= types.Money(int(value) / v)
+			}
+		}
+	}
+	// value, ok := categories[payment.Category]
+	// avg = types.Money(int(sum) / count)
+
+	return categories
+}
