@@ -1,3 +1,3 @@
-module github.com/hamroev/stats
+module github.com/hamroev/stats/v2
 
 go 1.15
