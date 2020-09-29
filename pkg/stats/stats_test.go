@@ -73,7 +73,7 @@ func TestFilteByCategory_foundOne(t *testing.T) {
 		{ID: 2, Category: "food"},
 	}
 
-	result := FilterByCategory(payments, "mobile")
+	result := FilterByCategory(payments, "food")
 
 	if !reflect.DeepEqual(expected, result) {
 		t.Error("invalid result")
@@ -94,7 +94,7 @@ func TestFilteByCategory_foundMultiple(t *testing.T) {
 		{ID: 4, Category: "auto"},
 	}
 
-	result := FilterByCategory(payments, "mobile")
+	result := FilterByCategory(payments, "auto")
 
 	if !reflect.DeepEqual(expected, result) {
 		t.Errorf("invalid result, expected: %v, actual: %v", expected, result)
